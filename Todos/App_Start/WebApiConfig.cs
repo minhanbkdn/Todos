@@ -10,7 +10,16 @@ namespace Todos
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.Routes.MapHttpRoute(
+                name: "GetTodos",
+                routeTemplate: "api/todos",
+                defaults: new { controller = "Todos" }
+            );
+            //config.Routes.MapHttpRoute(
+            //    name: "GetTodo",
+            //    routeTemplate: "api/todos/{id}",
+            //    defaults: new { controller = "Todos", action = "Get", id = RouteParameter.Optional }
+            //);
             // Web API routes
             config.MapHttpAttributeRoutes();
 
